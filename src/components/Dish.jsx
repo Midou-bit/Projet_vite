@@ -5,7 +5,7 @@ const Dish = ({ image, name, price }) => {
         <div className="dish">
             <img src={image} alt={name} width="150" />
             <h3>{name}</h3>
-            <p>Prix : {price}€</p>  {/* Affichage correct du prix */}
+            <p>Prix : {price}€</p> 
         </div>
     );
 };
