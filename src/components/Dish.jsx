@@ -1,12 +1,15 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
 const Dish = ({ image, name, price }) => {
     return (
-        <div className="dish">
-            <img src={image} alt={name} width="150" />
-            <h3>{name}</h3>
-            <p>Prix : {price}€</p> 
-        </div>
+        <Card className="dish-card">
+            <Card.Img variant="top" src={image} />
+            <Card.Body>
+                <Card.Title>{name}</Card.Title>
+                <Card.Text><strong>Prix :</strong> {price}€</Card.Text>
+            </Card.Body>
+        </Card>
     );
 };
 
