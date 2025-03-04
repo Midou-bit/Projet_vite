@@ -3,14 +3,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 import NavigationBar from './components/Navbar';
 import Footer from './components/Footer';
 import Dish from './components/Dish';
+import './styles/dish.scss';
+import './styles/navbar.scss';
+import './styles/footer.scss';
+
 
 function App() {
     return (
         <div>
             <NavigationBar />
             <Container>
-                <h1 className="text-center my-4">Bienvenue la Famille</h1>
-                <h2 className="text-center">Nos bons petits plats</h2>
+                <h1 className="text-center my-4">Nos bons petits plats</h1>
 
                 <Row>
                     <Col md={4}>

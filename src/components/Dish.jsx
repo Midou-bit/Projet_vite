@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import '../styles/dish.scss';
 
 const Dish = ({ image, name, price }) => {
     return (
