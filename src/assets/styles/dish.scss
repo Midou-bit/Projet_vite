@@ -1,9 +1,23 @@
 .dish-card {
     margin-bottom: 20px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.dish-card img {
-    height: 250px; 
-    object-fit: cover;
+.dish-image-container {
+    position: relative;
+}
+
+.dish-img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover; 
+}
+
+.new-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+   
 }

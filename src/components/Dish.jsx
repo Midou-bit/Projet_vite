@@ -1,11 +1,14 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
-import '/src/assets/styles/dish.scss'; 
+import { Card, Badge } from 'react-bootstrap';
+import '/src/assets/styles/dish.scss';
 
-const Dish = ({ image, name, price }) => {
+const Dish = ({ image, name, price, isNew }) => {
     return (
         <Card className="dish-card">
-            <Card.Img variant="top" src={image} />
+            <div className="dish-image-container">
+                {isNew && <Badge className="new-badge">Nouveau</Badge>} 
+                <Card.Img variant="top" src={image} className="dish-img"/>
+            </div>
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text><strong>Prix :</strong> {price}€</Card.Text>
