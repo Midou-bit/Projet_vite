@@ -10,20 +10,22 @@ const dishes = [
     price: 3, 
     image: "https://cdn.pixabay.com/photo/2016/08/23/08/53/tacos-1613795_960_720.jpg", 
     isNew: true,
-    inStock: true }, 
+    stock: 5 }, 
+
   { name: "Enchiladas", 
     price: 12, 
     image: "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg", 
     isNew: false,
-    inStock: false }, 
+    stock: 0 },
+
   { name: "Mole poblano", 
     price: 15, 
     image: "https://cdn.pixabay.com/photo/2021/02/04/03/57/mole-5980185_960_720.jpg", 
     isNew: false,
-    inStock: true }, 
+    stock: 2 }, 
 ];
 
-const filteredDishes = dishes.filter(dish => dish.inStock); 
+const filteredDishes = dishes.filter(dish => dish.stock > 0); 
 
 function App() {
   return (
