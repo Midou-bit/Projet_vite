@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import Navbar from './components/Navbar'; 
 import Footer from './components/Footer';
 import Dish from './components/Dish';
@@ -16,7 +16,7 @@ const dishes = [
     price: 12, 
     image: "https://cdn.pixabay.com/photo/2014/01/14/22/13/mexican-245240_960_720.jpg", 
     isNew: false,
-    stock: 0 },
+    stock: 0 }, 
 
   { name: "Mole poblano", 
     price: 15, 
@@ -25,15 +25,27 @@ const dishes = [
     stock: 2 }, 
 ];
 
-const filteredDishes = dishes.filter(dish => dish.stock > 0); 
-
 function App() {
+  const [showNewOnly, setShowNewOnly] = useState(false);
+
+  const handleShowNewOnly = () => {
+    setShowNewOnly(prevState => !prevState);
+  };
+
+  const filteredDishes = dishes
+    .filter(dish => dish.stock > 0)
+    .filter(dish => !showNewOnly || dish.isNew);
+
   return (
     <>
       <Navbar /> 
 
       <main className="main-container">      
         <Container>
+          <Button variant="secondary" onClick={handleShowNewOnly} className="mb-3">
+            {showNewOnly ? "Voir tout les plat" : "Nouveauter uniquemen"}
+          </Button>
+
           <Row className="dish-row">
             {filteredDishes.map((dish, index) => (
               <Col key={index} lg={4} md={4} sm={12} className="d-flex justify-content-center">
