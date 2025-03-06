@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import Navbar from './components/Navbar'; 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Dish from './components/Dish';
 import "./assets/styles/App.scss";
+
 
 const dishes = [
   { name: "Tacos à l’unité",
@@ -19,24 +19,17 @@ const dishes = [
 ];
 
 function App() {
-  const [cartCount, setCartCount] = useState(0);
   const [showNewOnly, setShowNewOnly] = useState(false);
 
   const handleShowNewOnly = () => {
     setShowNewOnly(prevState => !prevState);
   };
 
-  const addToCart = () => {
-    setCartCount(prevCount => prevCount + 1);
-  };
-
   const filteredDishes = dishes.filter(dish => dish.stock > 0 && (!showNewOnly || dish.isNew));
 
   return (
     <>
-      <Header cartCount={cartCount} />
-
-      <Navbar />
+      <Header />
 
       <main className="main-container">      
         <Container>
@@ -47,7 +40,7 @@ function App() {
           <Row className="dish-row">
             {filteredDishes.map((dish, index) => (
               <Col key={index} lg={4} md={4} sm={12} className="d-flex justify-content-center">
-                <Dish {...dish} addToCart={addToCart} />
+                <Dish {...dish} />
               </Col>
             ))}
           </Row>
