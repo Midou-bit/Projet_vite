@@ -32,9 +32,7 @@ function App() {
     setShowNewOnly(prevState => !prevState);
   };
 
-  const filteredDishes = dishes
-    .filter(dish => dish.stock > 0)
-    .filter(dish => !showNewOnly || dish.isNew);
+  const filteredDishes = dishes.filter(dish => dish.stock > 0 && (!showNewOnly || dish.isNew));
 
   return (
     <>
@@ -43,7 +41,7 @@ function App() {
       <main className="main-container">      
         <Container>
           <Button variant="secondary" onClick={handleShowNewOnly} className="mb-3">
-            {showNewOnly ? "Voir tout les plat" : "Nouveauter uniquemen"}
+            {showNewOnly ? "Voir tout les plat" : "Nouveaut uniquement"}
           </Button>
 
           <Row className="dish-row">
