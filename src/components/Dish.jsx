@@ -4,7 +4,7 @@ import { CartContext } from '../context/CartContext';
 import '/src/assets/styles/dish.scss';
 
 const Dish = ({ image, name, price, isNew }) => {
-    const { addToCart } = useContext(CartContext);
+    const { dispatch } = useContext(CartContext);
 
     return (
         <Card className="dish-card">
@@ -15,8 +15,12 @@ const Dish = ({ image, name, price, isNew }) => {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text><strong>Prix :</strong> {price}€</Card.Text>
-                <Button variant="primary" onClick={addToCart}>
-                    Ajoute au panier
+                <Button variant="primary" onClick={() => dispatch({ type: "increment" })}>
+                    Ajouter au panier
+                </Button>
+                {' '}
+                <Button variant="danger" onClick={() => dispatch({ type: "decrement" })}>
+                    enlever du panier
                 </Button>
             </Card.Body>
         </Card>
