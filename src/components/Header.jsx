@@ -1,20 +1,16 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from "../../assets/logo.png"; // ✅ Import du nouveau logo
-import "./Header.scss";
+import React from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
 
-function Header() {
+const Header = ({ cartCount }) => {
   return (
-    <Navbar expand="lg" className="header">
-      <Container>
-        <Navbar.Brand href="/" className="logo-container">
-          <img src={logo} alt="Logo" className="logo" />
-        </Navbar.Brand>
-        <Nav className="nav-links">
-          <Nav.Link href="/">Accueil</Nav.Link>
-        </Nav>
-      </Container>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="/">Mon Restaurant</Navbar.Brand>
+      <Nav className="ml-auto">
+        <Nav.Link href="/">Accueil</Nav.Link>
+        <Nav.Link href="/panier">Panier ({cartCount})</Nav.Link>
+      </Nav>
     </Navbar>
   );
-}
+};
 
 export default Header;
