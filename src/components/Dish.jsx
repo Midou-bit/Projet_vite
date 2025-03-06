@@ -4,8 +4,8 @@ import '/src/assets/styles/dish.scss';
 
 const Dish = ({ image, name, price, isNew }) => {
     
-    const handleAddToCart = () => {
-        alert(`Le plat ${name} est maintenant dans votre panier`);
+    const handleAddToCart = (dishName) => {
+        alert(`Le plat ${dishName} est maintenant dans votre panier`);
     };
 
     return (
@@ -17,7 +17,7 @@ const Dish = ({ image, name, price, isNew }) => {
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text><strong>Prix :</strong> {price}€</Card.Text>
-                <Button variant="primary" onClick={handleAddToCart}>
+                <Button variant="primary" onClick={() => handleAddToCart(name)}>
                     Ajouter au panier
                 </Button>
             </Card.Body>
